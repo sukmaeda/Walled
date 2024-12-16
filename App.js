@@ -1,66 +1,75 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ImageBackground, ScrollView, Button, TouchableOpacity, SafeAreaView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView, FlatList, ScrollView} from 'react-native';
 import Box from './components/Box';
 
 export default function App() {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        {/* Profile */}
         <View style={styles.profile}>
-          <Image source={require('./assets/Foto.jpeg')} style={{width: 46, height: 46, borderRadius: 100}}></Image>
+          <Image source={require('./assets/runa.jpg')} style={{width: 46, height: 46, borderRadius: 100}}></Image>
           <View style={{ marginLeft: 20}}>
-            <Text style={{fontWeight: 700}}>Sukma Jan Eda</Text>
+            <Text style={{fontWeight: 700}}>Runa Yomozuki</Text>
             <Text >Personal Account</Text>
           </View>
           <View style={{flex: 1}}>
           </View>
           <Image source={require('./assets/matahari.png')} style={{width: 32, height: 32, borderRadius: 100}}></Image>
         </View>
-
-        <View style={styles.greetings}>
-          <View>
-            <Text style={styles.greeting}>Good Morning, Chelsea</Text>
+     
+        <View style={{flexDirection: 'row', marginTop: 20, alignItems: 'center'}}>
+          <View style={styles.greetings}>
+            <Text style={styles.greeting}>Good Morning, Runa</Text>
             <Text style={styles.description}>Check all your incoming and outgoing transactions here</Text>
           </View>
-          <Image source={require('./assets/Group.png')} style={{width:100, height: 100}}/>
+          <Image source={require('./assets/Group.png')} style={{width:117, height: 110}}/>
         </View>
+
         <View style={styles.accountInfo}>
           <Text style={styles.accountLabel}>Account No.</Text>
           <Text style={styles.accountNumber}>100899</Text>
         </View>
+
         <View style={styles.balanceContainer}>
-          <View>
+          <View style={{marginTop: 40}}>
             <Text style={styles.balanceLabel}>Balance</Text>
-            <Text style={styles.balanceAmount}>Rp 10.000.000</Text>
+            <View style={{flexDirection: 'row', paddingHorizontal: 10, marginTop: 10, alignItems: 'center'}}>
+              <Text style={styles.balanceAmount}>Rp 10.000.000 </Text>
+              <Image source={require('./assets/view 1.png')} style={{width:25, height: 16, marginTop: 10}}></Image>
+            </View>
           </View>
           <View style={styles.actionButtons}>
             <TouchableOpacity style={styles.addButtons}>
-              <Text>+</Text>
+              <Image source={require('./assets/Group 11.png')} style={{width: 60, height: 60}}></Image>
             </TouchableOpacity>
             <TouchableOpacity style={styles.sendButtons}>
-              <Text>✉️</Text>
+              <Image source={require('./assets/Group 12.png')} style={{width: 60, height: 60}}></Image>
             </TouchableOpacity>
           </View>
         </View>
 
         <View style={styles.transactionHistory}>
-        <Text style={styles.transactionHeader}>Transaction History</Text>
-        <FlatList
-          data={data}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => <TransactionItem {...item} />}
-        />
+          <Text style={styles.transactionHeader}>Transaction History</Text>
+          <FlatList
+            data={data}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => <TransactionItem {...item} />}
+          />
+        </View>
       </View>
-    </View>
     </SafeAreaView>
   );
-
 };
 
 const data = [
-  { id: 1, name: 'Aditya Gizwanda', type: 'Transfer', date: '08 December 2024', amount: -7500000 },
-  { id: 2, name: 'Aditya Gizwanda', type: 'Topup', date: '08 December 2024', amount: 7500000 },
+  { id: 1, name: 'Jabami Yumeko', type: 'Transfer', date: '11 December 2024', amount: -7500000 },
+  { id: 2, name: 'Mary Saotome', type: 'Topup', date: '11 December 2024', amount: 7500000 },
+  { id: 3, name: 'Jabami Yumeko', type: 'Transfer', date: '10 December 2024', amount: -7500000 },
+  { id: 4, name: 'Mary Saotome', type: 'Topup', date: '10 December 2024', amount: 7500000 },
+  { id: 5, name: 'Jabami Yumeko', type: 'Transfer', date: '09 December 2024', amount: -7500000 },
+  { id: 6, name: 'Mary Saotome', type: 'Topup', date: '09 December 2024', amount: 7500000 },
+  { id: 7, name: 'Jabami Yumeko', type: 'Transfer', date: '08 December 2024', amount: -7500000 },
+  { id: 8, name: 'Mary Saotome', type: 'Topup', date: '08 December 2024', amount: 7500000 },
 ];
 
 const TransactionItem = ({name, type, date, amount}) => (
@@ -78,58 +87,79 @@ const TransactionItem = ({name, type, date, amount}) => (
 
 const styles = StyleSheet.create({
   container: {
+    marginHorizontal: 20
   },
   profile: {
     flexDirection: 'row',
-    borderRadius: 5,
+    borderRadius: 20,
+    backgroundColor: "pink",
     marginTop:30,
-    elevation: 3,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     display: 'flex',
     alignItems: 'center',
     height: 80,
     width: '100%'
   },
   greetings:{
-    display: 'flex',
-    flexDirection: 'row',
-    marginHorizontal: 20,
-    justifyContent: 'left'
+    flex: 1,
   },
   greeting: {
-    fontSize: 28, // Ukuran font judul diperbesar
+    fontSize: 20,
     fontWeight: 'bold',
-    color: 'black', // Warna teks hitam
-    marginBottom: 10,
+    color: 'black',
+    flexDirection: "row",
   },
+  description: {
+    color: "black",
+    fontSize: 16,
+    marginTop: 16,
+  },
   accountInfo: {
+    marginTop: 30,
     display: 'flex',
     flexDirection: 'row',
+    borderRadius: 15,
     justifyContent: 'space-between',
     padding: 20,
-    backgroundColor: 'aqua'
+    backgroundColor: '#19918F'
+  },
+  accountLabel: {
+    fontSize: 20,
+    color: 'white',
+  },
+  accountNumber: {
+    fontSize: 20,
+    color: 'white',
   },
   balanceContainer:{
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 20
   },
   actionButtons: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'aqua',
-    padding: 20,
-    justifyContent: 'center'
+    marginTop : 20,
+    justifyContent: 'center',
+    borderRadius: 10
+  },
+  balanceLabel: {
+    fontSize: 20,
+    paddingHorizontal: 10,
+  },
+  balanceAmount: {
+    fontSize: 30,
+    fontWeight: 'bold'
   },
   addButtons: {
-    borderRadius: 3
+    borderRadius: 3,
   },
   sendButtons: {
     borderRadius: 3
   },
   transactionHistory: {
-    padding: 16,
+    marginTop: 20,
+    height : 400
   },
   transactionHeader: {
     fontSize: 18,
