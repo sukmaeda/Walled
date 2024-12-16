@@ -9,7 +9,6 @@ export default function Box({children, style}) {
 
 const styles = StyleSheet.create({
     box: {
-        backgroundColor: 'blue',
         padding: 10
     },
     text: {
@@ -17,4 +16,4 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center'
     }
-})
+});
