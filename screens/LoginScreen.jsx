@@ -1,6 +1,7 @@
 import { SafeAreaView, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import FormComponent from '../components/Form';
-export default function LoginScreen() {
+
+export default function LoginScreen({navigation}) {
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -14,7 +15,7 @@ export default function LoginScreen() {
 
       <View style={styles.register}>
         <Text>Don't have an account?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
           <Text style={{color: 'blue'}}> Sign-up here.</Text>
         </TouchableOpacity>
       </View>

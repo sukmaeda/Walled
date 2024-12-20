@@ -5,9 +5,6 @@ export default function TnC() {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <View style={styles.profile}>
-            <Text style={{fontWeight: 'bold'}}>Terms and Conditions</Text>
-        </View>
         <ScrollView>
             <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -57,7 +54,4 @@ const styles = StyleSheet.create({
       marginTop: 20,
       padding: 20
     },
-    profile: {
-        padding: 20
-    }
   });

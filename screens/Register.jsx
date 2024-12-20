@@ -1,6 +1,13 @@
 import { SafeAreaView, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import FormComponent from '../components/Form';
+import { useNavigation } from '@react-navigation/native';
+import { register } from '../api/restAPI';
+
 export default function Register() {
+  const navigation = useNavigation()
+  const register = () => {
+    
+  }
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -14,7 +21,7 @@ export default function Register() {
 
       <View style={styles.register}>
         <Text>Already have an account?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
           <Text style={{color: 'blue'}}> Sign-in here.</Text>
         </TouchableOpacity>
       </View>
